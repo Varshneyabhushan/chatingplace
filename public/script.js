@@ -1,6 +1,36 @@
 var sendbtn = document.getElementById("send")
 const username = document.getElementById("id")
 const messagebox = document.getElementById("textbox")
+const badge = document.createElement('p')
+const chat = document.getElementById('chat')
+badge.id = "badge"
+badge.className = "typingbadge"
+badge.innerText = "some is typing...."
+
+
+function Timer(val){
+    var interval
+    var started = false
+
+    this.start = function(){
+        chat.appendChild(badge)
+        interval = setInterval(this.stop,val)
+        started = true
+    }
+
+    this.stop = function(){
+        clearInterval(interval)
+        chat.removeChild(badge)
+        started = false
+    }
+
+    this.reset = function(){
+        if(started) this.stop()
+        this.start()
+    }
+}
+
+const timer = new Timer(1000)
 
 
 sendbtn.addEventListener('click',function(){
@@ -12,6 +42,7 @@ sendbtn.addEventListener('click',function(){
 
 const socket = io.connect('http://localhost:3000')
 
+stickMessage('you joined the chat!')
 
 socket.on('message',function(message){
     appendMessage(message)
@@ -19,6 +50,10 @@ socket.on('message',function(message){
 
 socket.on('status',function(message){
     stickMessage(message)
+})
+
+socket.on('typing',function(){
+    timer.reset()
 })
 
 function appendMessage(msg){
@@ -32,7 +67,7 @@ function appendMessage(msg){
     message.innerText = msg.message
     msgobj.appendChild(sender)
     msgobj.appendChild(message)
-    document.getElementById("chat").appendChild(msgobj)
+    chat.appendChild(msgobj)
 }
 
 function postMessage(msg){
@@ -43,10 +78,10 @@ function stickMessage(msg){
     var msge = document.createElement('p')
     msge.className = "sticks"
     msge.innerText = msg
-    document.getElementById("chat").appendChild(msge)
+    chat.appendChild(msge)
 }
 
 
 messagebox.onkeydown = function(){
-    
+    socket.emit('typing',null)
 }

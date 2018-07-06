@@ -30,5 +30,7 @@ io.sockets.on('connection',function(socket){
         socket.broadcast.emit('message',res)
     })
 
-    
+    socket.on('typing',function(message){
+        io.sockets.emit('typing',null)
+    })
 })
