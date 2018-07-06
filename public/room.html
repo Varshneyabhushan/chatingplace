@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <style>
+#all {
+    background: antiquewhite;
+}
+
+#chat {
+    height: 90%;
+    /* width: 50%; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    background: aliceblue;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#all {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#id {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+#id {
+    background: rgb(182, 250, 205);
+    width: 50%;
+    margin-left: 25%;
+}
+
+div#chat {
+    margin-left: 5%;
+    width: 90%;
+    overflow: scroll;
+}
+
+#ctrls {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-grid;
+}
+
+.msgobj {
+    background: aquamarine;
+    width: 90%;
+    margin-left: 5%;
+    
+}
+
+.sender {
+    float: left;
+    margin: 0px 15px 0px 4px;
+    color: red
+}
+
+.sticks {
+    background: rgb(192, 116, 111);
+    width: 90%;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+}
+
+        </style>
+    </head>
+    <body>
+        <div id="all">
+            <input type="text" placeholder="anonymous" id="id">
+            <div id="chat"></div>
+            <div id="ctrls">
+                <input type="text" id="textbox" placeholder="chat here">
+                <button id="send">Send</button>
+            </div>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "chatting_place",
+  "version": "1.0.0",
+  "description": "chatting place",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Varshneyabhushan@bitbucket.org/Varshneyabhushan/chatting_place.git"
+  },
+  "keywords": [
+    "chatting",
+    "place",
+    "node"
+  ],
+  "author": "Varshneyabhushan",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Varshneyabhushan/chatting_place#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}
