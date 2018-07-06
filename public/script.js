@@ -40,7 +40,7 @@ sendbtn.addEventListener('click',function(){
 })
 
 
-const socket = io.connect('http://localhost:3000')
+const socket = io()
 
 stickMessage('you joined the chat!','green')
 
