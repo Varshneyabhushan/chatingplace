@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const socket = require('socket.io')
-
+var count = 0
 
 const listener = app.listen(3000 ,'localhost',function(){
     console.log('app is listening on: localhost :'  +listener.address().port);
@@ -23,14 +23,20 @@ app.post('/postMessage',function(req,res){
 })
 
 io.sockets.on('connection',function(socket){
+    count += 1
     console.log("new connection recieved!!")
-    socket.broadcast.emit('status','new member has joined the chat!')
+    io.sockets.emit('status',{message : 'new member has joined the chat!_________Members online:'+count, color : 'green'})
     
     socket.on('postmessage',function(res){
         socket.broadcast.emit('message',res)
     })
 
-    socket.on('typing',function(message){
+    socket.on('typing',function(){
         io.sockets.emit('typing',null)
+    })
+
+    socket.on('disconnect',function(){
+        count -= 1
+        socket.broadcast.emit('status',{message : 'someone has disconnected_________Members online:'+count, color : 'red'})
     })
 })

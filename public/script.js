@@ -42,14 +42,14 @@ sendbtn.addEventListener('click',function(){
 
 const socket = io.connect('http://localhost:3000')
 
-stickMessage('you joined the chat!')
+stickMessage('you joined the chat!','green')
 
 socket.on('message',function(message){
     appendMessage(message)
 })
 
-socket.on('status',function(message){
-    stickMessage(message)
+socket.on('status',function(res){
+    stickMessage(res.message,res.color)
 })
 
 socket.on('typing',function(){
@@ -74,9 +74,9 @@ function postMessage(msg){
     socket.emit('postmessage',msg)
 }
 
-function stickMessage(msg){
+function stickMessage(msg,color){
     var msge = document.createElement('p')
-    msge.className = "sticks"
+    msge.className = color
     msge.innerText = msg
     chat.appendChild(msge)
 }
