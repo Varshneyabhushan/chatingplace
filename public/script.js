@@ -6,7 +6,7 @@ const chat = document.getElementById('chat')
 badge.id = "badge"
 badge.className = "typingbadge"
 badge.innerText = "some is typing...."
-
+const countdeck = document.getElementById('count')
 
 function Timer(val){
     var interval
@@ -54,6 +54,10 @@ socket.on('status',function(res){
 
 socket.on('typing',function(){
     timer.reset()
+})
+
+socket.on('changeCount',function(count){
+    countdeck.innerText = "members Online :" + count
 })
 
 function send(){
