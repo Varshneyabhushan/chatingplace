@@ -1,5 +1,5 @@
 var sendbtn = document.getElementById("send")
-const username = document.getElementById("id")
+const username = document.getElementById("name")
 const messagebox = document.getElementById("textbox")
 const badge = document.createElement('p')
 const chat = document.getElementById('chat')
@@ -31,10 +31,8 @@ function Timer(val){
     }
 }
 
-const timer = new Timer(400)
+const timer = new Timer(700)
 
-
-sendbtn.addEventListener('click',send)
 messagebox.addEventListener('onkeypress',send)
 
 messagebox.addEventListener("keyup", function(event) {
@@ -59,8 +57,8 @@ socket.on('typing',function(){
 })
 
 function send(){
-    if(username.value == "") username.value = "anonymous"
-    var msg = { "sender" : username.value,"message" : messagebox.value }
+    if(username.innerText == "") username.innerText = "anonymous"
+    var msg = { "sender" : username.innerText,"message" : messagebox.value }
     appendMessage(msg)
     postMessage(msg)
     messagebox.value = ""

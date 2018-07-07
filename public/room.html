@@ -3,15 +3,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="all">
-            <input type="text" placeholder="anonymous" id="id">
-            <div id="chat">
-                
-            </div>
-            <div id="ctrls">
-                <input type="text" id="textbox" placeholder="chat here">
-                <button id="send">Send</button>
-            </div>
+        <div id="top">
+            <div id="name">anonymous</div>
+            <div id="count">members online : 0</div>
+        </div>
+        <div id="all"><div id="chat"></div></div>
+        <div id="ctrls">
+            <input type="text" id="textbox" placeholder="chat here">
         </div>
         <script src="/socket.io/socket.io.js"></script>
         <script src="script.js"></script>
