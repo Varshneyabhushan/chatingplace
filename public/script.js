@@ -33,11 +33,19 @@ function Timer(val){
 
 const timer = new Timer(700)
 
-messagebox.addEventListener('onkeypress',send)
-
 messagebox.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) send();
+    event.preventDefault()
+    if (event.keyCode === 13){
+        var text = textbox.value
+        if(text.indexOf("change:") == 0){
+            var name = text.replace("change:","")
+            username.innerText = name
+            stickMessage("you change your username to : "+name,'yellow')
+            textbox.value = ""
+        }else{
+            send()
+        }
+    }
   });
 
 const socket = io()
@@ -61,6 +69,7 @@ socket.on('changeCount',function(count){
 })
 
 function send(){
+
     if(username.innerText == "") username.innerText = "anonymous"
     var msg = { "sender" : username.innerText,"message" : messagebox.value }
     appendMessage(msg)

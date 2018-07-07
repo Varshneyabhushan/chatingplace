@@ -97,6 +97,14 @@ div#top {
     text-align: center;
 }
 
+.yellow {
+    background: rgb(223, 197, 46);
+    width: 90%;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
 
 .typingbadge {
     background: rgb(238, 226, 114);
