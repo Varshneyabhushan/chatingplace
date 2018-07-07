@@ -1,0 +1,75 @@
+#all {
+    background: antiquewhite;
+}
+
+#chat {
+    height: 90%;
+    /* width: 50%; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    background: aliceblue;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#all {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#id {
+    background: rgb(182, 250, 205);
+    width: 50%;
+    margin-left: 25%;
+}
+
+div#chat {
+    margin-left: 5%;
+    width: 90%;
+    overflow: scroll;
+}
+
+#ctrls {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-grid;
+}
+
+.msgobj {
+    background: aquamarine;
+    width: 90%;
+    margin-left: 5%;
+    
+}
+
+.sender {
+    float: left;
+    margin: 0px 15px 0px 4px;
+    color: red
+}
+
+.green {
+    background: rgb(82, 207, 109);
+    width: 90%;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+}
+
+.red {
+    background: rgb(223, 58, 46);
+    width: 90%;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+}
+
+
+.typingbadge {
+    background: rgb(238, 226, 114);
+    width: 90%;
+    margin-left: 5%;
+}
