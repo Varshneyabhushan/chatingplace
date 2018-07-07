@@ -3,7 +3,7 @@ const app = express()
 const socket = require('socket.io')
 var count = 0
 
-const listener = app.listen(3000 ,'localhost',function(){
+const listener = app.listen(process.env.PORT || 3000 ,function(){
     console.log('app is listening on: localhost :'  +listener.address().port);
 })
 
