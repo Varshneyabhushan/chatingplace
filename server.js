@@ -1,25 +1,18 @@
 const express = require('express')
 const app = express()
 const socket = require('socket.io')
-var count = 0
-
-const listener = app.listen(process.env.PORT || 3000 ,function(){
+app.use(express.static('public'))
+app.use(express.json())
+const listener = app.listen(process.env.PORT,function(){
     console.log('app is listening on: localhost :'  +listener.address().port);
 })
 
 const io = socket(listener)
 
-app.use(express.static('public'))
-app.use(express.json())
+var count = 0
 
 app.get('/',function(req,res){
     res.sendFile('public/room.html',{root : __dirname })
-})
-
-app.post('/postMessage',function(req,res){
-    var msg = req.body
-    console.log(msg)
-    res.send("successful!")
 })
 
 io.sockets.on('connection',function(socket){

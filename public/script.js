@@ -14,6 +14,7 @@ function Timer(val){
 
     this.start = function(){
         chat.appendChild(badge)
+        chat.scrollTop = chat.scrollHeight
         interval = setInterval(this.stop,val)
         started = true
     }
@@ -30,15 +31,16 @@ function Timer(val){
     }
 }
 
-const timer = new Timer(1000)
+const timer = new Timer(400)
 
 
-sendbtn.addEventListener('click',function(){
-    var msg = { "sender" : username.value,"message" : messagebox.value }
-    appendMessage(msg)
-    postMessage(msg)
-})
+sendbtn.addEventListener('click',send)
+messagebox.addEventListener('onkeypress',send)
 
+messagebox.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) send();
+  });
 
 const socket = io()
 
@@ -56,6 +58,14 @@ socket.on('typing',function(){
     timer.reset()
 })
 
+function send(){
+    if(username.value == "") username.value = "anonymous"
+    var msg = { "sender" : username.value,"message" : messagebox.value }
+    appendMessage(msg)
+    postMessage(msg)
+    messagebox.value = ""
+}
+
 function appendMessage(msg){
     var msgobj = document.createElement('div')
     msgobj.className = "msgobj"
@@ -68,6 +78,7 @@ function appendMessage(msg){
     msgobj.appendChild(sender)
     msgobj.appendChild(message)
     chat.appendChild(msgobj)
+    chat.scrollTop = chat.scrollHeight
 }
 
 function postMessage(msg){
@@ -79,9 +90,10 @@ function stickMessage(msg,color){
     msge.className = color
     msge.innerText = msg
     chat.appendChild(msge)
+    chat.scrollTop = chat.scrollHeight
 }
 
 
-messagebox.onkeydown = function(){
-    socket.emit('typing',null)
+messagebox.onkeydown = function(event){
+    if(event.keyCode != 13) socket.emit('typing')
 }
