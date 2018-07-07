@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const socket = require('socket.io')
+
+
 app.use(express.static('public'))
 app.use(express.json())
 const listener = app.listen(process.env.PORT || 3000,function(){
@@ -18,7 +20,8 @@ app.get('/',function(req,res){
 io.sockets.on('connection',function(socket){
     count += 1
     console.log("new connection recieved!!")
-    io.sockets.emit('status',{message : 'new member has joined the chat!_________Members online:'+count, color : 'green'})
+    socket.broadcast.emit('status',{message : 'new member has joined the chat!', color : 'green'})
+    io.sockets.emit('changeCount',count)
     
     socket.on('postmessage',function(res){
         socket.broadcast.emit('message',res)
@@ -30,6 +33,7 @@ io.sockets.on('connection',function(socket){
 
     socket.on('disconnect',function(){
         count -= 1
-        socket.broadcast.emit('status',{message : 'someone has disconnected_________Members online:'+count, color : 'red'})
+        socket.broadcast.emit('status',{message : 'someone has disconnected', color : 'red'})
+        io.sockets.emit('changeCount',count)
     })
 })
