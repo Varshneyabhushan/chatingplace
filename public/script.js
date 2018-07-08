@@ -40,7 +40,7 @@ messagebox.addEventListener("keyup", function(event) {
         if(text.indexOf("change:") == 0){
             var name = text.replace("change:","")
             username.innerText = name
-            stickMessage("you change your username to : "+name,'yellow')
+            stickMessage("you change your screen_name to : "+name,'yellow')
             textbox.value = ""
         }else{
             send()
@@ -60,7 +60,7 @@ socket.on('status',function(res){
     stickMessage(res.message,res.color)
 })
 
-socket.on('typing',function(){
+socket.on('typing',function(){ 
     timer.reset()
 })
 

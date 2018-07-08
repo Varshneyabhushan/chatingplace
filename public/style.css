@@ -3,11 +3,11 @@
 }
 
 #chat {
-    height: 90%;
-    /* width: 50%; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
+    height: 88%;
+    width: 90%;
+    margin-left: 5%;
     background: aliceblue;
+    overflow: scroll;
 }
 
 body {
@@ -17,13 +17,6 @@ body {
 
 #all {
     width: 100%;
-}
-
-
-div#chat {
-    margin-left: 5%;
-    width: 90%;
-    overflow: scroll;
 }
 
 #ctrls {
@@ -53,8 +46,11 @@ div#chat {
 
 #textbox {
     width: -webkit-fill-available;
-    padding: 9px;
+    padding: 10px;
     font-size: 18px;
+    z-index: 1;
+    position: fixed;
+    top: 92%;
 }
 
 #count {
