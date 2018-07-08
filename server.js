@@ -24,6 +24,7 @@ io.sockets.on('connection',function(socket){
     io.sockets.emit('changeCount',count)
     
     socket.on('postmessage',function(res){
+        res.senderid = socket.id
         socket.broadcast.emit('message',res)
     })
 
