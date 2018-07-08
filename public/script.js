@@ -102,6 +102,8 @@ function appendMessage(msg){
         msgobj.appendChild(message)
         chat.appendChild(msgobj)
         chat.scrollTop = chat.scrollHeight
+        if(msg.senderid == myid) msgobj.className += " me"
+        else msgobj.className += " you"
         lastMessage = msgobj
         lastSender = msg.senderid
     }

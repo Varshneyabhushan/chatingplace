@@ -1,22 +1,14 @@
-#all {
-    background: antiquewhite;
-}
-
 #chat {
     height: 88%;
-    width: 90%;
-    margin-left: 5%;
-    background: aliceblue;
-    overflow: scroll;
+    width: 100%;
+    background: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0px;
     padding: 0px;
-}
-
-#all {
-    width: 100%;
 }
 
 #ctrls {
@@ -65,10 +57,14 @@ div#top {
 }
 
 .msgobj {
-    background: aquamarine;
     width: 90%;
     margin-left: 5%;
-    
+   /* background-color: #7bf795;*/
+}
+
+.msgobj.me {
+    /*background-color: #17e64f40;*/
+    color : rgb(0, 130, 48)
 }
 
 .sender {
@@ -78,18 +74,16 @@ div#top {
 }
 
 .green {
-    background: rgb(82, 207, 109);
     width: 90%;
     margin-left: 5%;
-    color: rgb(255, 255, 255);
+    color:  rgb(82, 207, 109);
     text-align: center;
 }
 
 .red {
-    background: rgb(223, 58, 46);
     width: 90%;
     margin-left: 5%;
-    color: rgb(255, 255, 255);
+    color: rgb(223, 58, 46);
     text-align: center;
 }
 
