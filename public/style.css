@@ -114,3 +114,7 @@ div#top {
 ::-webkit-scrollbar-thumb {
     background-color: #f7d7adc4;
 }
+
+img#startimg {
+    width: inherit;
+}
