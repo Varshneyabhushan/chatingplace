@@ -19,7 +19,8 @@ app.get('/',function(req,res){
 
 io.sockets.on('connection',function(socket){
     count += 1
-    console.log("new connection recieved!!")
+    var clientIp = socket.request.connection.remoteAddress;
+    console.log('New connection from ' + clientIp);
     socket.broadcast.emit('status',{message : 'new member has joined the chat!', color : 'green'})
     io.sockets.emit('changeCount',count)
     
