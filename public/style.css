@@ -1,12 +1,3 @@
-#chat {
-    height: 88%;
-    width: 60%;
-    background: white;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 body {
     margin: 0px;
@@ -14,60 +5,60 @@ body {
     background: beige;
 }
 
-#ctrls {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    display: flex;
-}
-
-#id {
-    width: 15%;
-    background: rgb(182, 250, 205);
-    text-align: center;
-}
-
 #top {
-    background: rgb(247, 215, 173);
-    height: 5%;
-}
-
-#name {
-    font-size: 25px;
-    font-family: sans-serif;
-    color: rgb(19, 77, 77);
-    margin-left: 20%;
+    background: rgb(173, 217, 255);
+    height: fit-content;
+    font-size: 20px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    top: 0px;
 }
 
 #textbox {
-    width: -webkit-fill-available;
+    width: 100%;
     padding: 10px;
     font-size: 18px;
-    z-index: 1;
-    position: fixed;
-    top: 92%;
     text-align: center;
+    user-select: none;
+    outline-width: 0px;
+    border-radius: 20px;
+    position: fixed;
+    bottom : 0px;
+}
+
+#name {
+    font-family: sans-serif;
+    color: rgb(19, 77, 77);
+    margin-left: 10px;
 }
 
 #count {
     margin-left: auto;
-    margin-right: 10px;
-    margin-top: 7px;
+    margin-right: 20px;
     color: maroon;
 }
 
-div#top {
-    display: flex;
+
+#chat {
+    background: white;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: fixed;
+    top: 42px;
+    bottom: 42px;
+    width: -webkit-fill-available;
 }
 
 .msgobj {
     width: 90%;
     margin-left: 5%;
-   /* background-color: #7bf795;*/
 }
 
 .msgobj.me {
-    /*background-color: #17e64f40;*/
     color : rgb(0, 130, 48)
 }
 
@@ -113,13 +104,13 @@ div#top {
 /* ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-} */
+}
 
-/* ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #f7d7adc4;
 } */
 
 img#startimg {
-    width: inherit;
+    width: 60%;
     padding: 10px 21%;
 }

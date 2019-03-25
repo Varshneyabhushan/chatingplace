@@ -38,6 +38,10 @@ socket.on('message',appendMessage)
 socket.on('status',stickMessage)
 socket.on('typing',_=>timer.reset())
 socket.on('changeCount',x=> countdeck.innerText = `members Online : ${x}`)
+socket.on('disconnect',_=>{
+    countdeck.innerText = ``
+    stickMessage({ message : 'you are offline.' , color : 'red' })
+})
 
 function send(){
     if(username.innerText == "") username.innerText = "anonymous"

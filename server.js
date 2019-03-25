@@ -5,7 +5,7 @@ const socket = require('socket.io')
 
 app.use(express.static('public'))
 app.use(express.json())
-const listener = app.listen(process.env.PORT || 3000 ,function(){
+const listener = app.listen(process.env.PORT || 3000 , function(){
     let {family , address , port } = listener.address()
     console.log(`app is listening on: ${family}:${address}:${port}`);
 })

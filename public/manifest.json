@@ -1,0 +1,16 @@
+{
+    "name" : "chating place",
+    "short_name" : "chaton",
+    "start_url" : ".",
+    "display" : "standalone",
+    "orientation" : "portrait",
+    "background_color" : "beige",
+    "theme_color" : "rgb(247, 215, 173)",
+    "icons" : [
+        {
+            "src" : "/images/144.png",
+            "sizes" : "144x144",
+            "type" : "image/png"
+        }
+    ]
+}

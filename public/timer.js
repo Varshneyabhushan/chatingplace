@@ -30,3 +30,7 @@ function Timer(val){
 }
 
 const timer = new Timer(1000)
+
+if(navigator.serviceWorker)
+    navigator.serviceWorker.register('/serviceWorker.js')
+    .then(_=>console.log('registerd'))
