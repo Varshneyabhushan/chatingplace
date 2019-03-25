@@ -2,7 +2,7 @@
     "name" : "chating place",
     "short_name" : "chaton",
     "start_url" : ".",
-    "display" : "standalone",
+    "display" : "fullscreen",
     "orientation" : "portrait",
     "background_color" : "beige",
     "theme_color" : "rgb(247, 215, 173)",
