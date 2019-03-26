@@ -1,8 +1,17 @@
 
 
-const username = document.getElementById("name")
 const messagebox = document.getElementById("textbox")
 const countdeck = document.getElementById('count')
+
+const badge = document.createElement('p')
+const chat = document.getElementById('chat')
+const chatctn = document.getElementById('chatcon')
+
+badge.id = "badge"
+badge.className = "typingbadge"
+badge.innerText = "some is typing...." 
+
+const timer = new Timer(1000,chat,badge)
 
 var lastSender = null
 var lastMessage = null
@@ -11,15 +20,8 @@ var myid = 0
 messagebox.addEventListener("keyup", function(event) {
     event.preventDefault()
     if (event.keyCode === 13){
-        let text = textbox.value
-        if(text.indexOf("change:") == 0){
-            let name = text.replace("change:","")
-            username.innerText = name
-            stickMessage({message : `you change your screen_name to : ${name}`, color : 'yellow'})
-            textbox.value = ""
-        }else{
-            send()
-        }
+        let text = textbox.value.trim()
+        if(text.indexOf("change:") != 0) send()
     }
 });
 
@@ -37,21 +39,23 @@ socket.on('connect',function(){
 socket.on('message',appendMessage)
 socket.on('status',stickMessage)
 socket.on('typing',_=>timer.reset())
-socket.on('changeCount',x=> countdeck.innerText = `members Online : ${x}`)
+socket.on('changeCount',x=> countdeck.innerText = `online : ${x}`)
 socket.on('disconnect',_=>{
     countdeck.innerText = ``
     stickMessage({ message : 'you are offline.' , color : 'red' })
 })
 
 function send(){
-    if(username.innerText == "") username.innerText = "anonymous"
-    var msg = { "sender" : username.innerText, "message" : messagebox.value , "senderid" : myid }
-    appendMessage(msg)
-    socket.emit('postmessage',msg)
+    var msg = { "sender" : username , "message" : messagebox.value.trim() , "senderid" : myid }
+    if(msg.message != ""){
+        appendMessage(msg)
+        socket.emit('postmessage',msg)
+    }
     messagebox.value = ""
 }
 
 function appendMessage(msg){
+
     if(msg.senderid == lastSender){
         lastMessage.getElementsByClassName("message")[0].innerText += "\n" + msg.message
     }else{
@@ -63,11 +67,14 @@ function appendMessage(msg){
         `
 
         chat.appendChild(msgobj)
-        chat.scrollTop = chat.scrollHeight
+        
         
         lastMessage = msgobj
         lastSender = msg.senderid
     }
+
+    chatcon.scrollTop = chatcon.scrollHeight
+
 }
 
 function stickMessage({message ,color}){

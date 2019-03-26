@@ -3,6 +3,16 @@ body {
     margin: 0px;
     padding: 0px;
     background: beige;
+    display: grid;
+}
+
+d-loading {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 125px;
+    font-size: 8px;
 }
 
 #top {
@@ -14,7 +24,26 @@ body {
     width: 100%;
     padding: 10px;
     top: 0px;
+    line-height: 40px;
+    z-index: 1;
+    user-select: none;
 }
+
+#dp {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    padding: 2px;
+}
+
+#dp:hover {
+    border : 5px solid cadetblue;
+}
+
+#dp:active {
+    border : 10px solid white;
+}
+
 
 #textbox {
     width: 100%;
@@ -41,16 +70,22 @@ body {
 }
 
 
-#chat {
-    background: white;
+#chatcon {
     overflow-y: scroll;
     overflow-x: hidden;
-    margin-left: 10px;
-    margin-right: 10px;
     position: fixed;
-    top: 42px;
+    top: 60px;
     bottom: 42px;
     width: -webkit-fill-available;
+    display: grid;
+    background: #fbfbfb;
+}
+
+#chat {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
 }
 
 .msgobj {

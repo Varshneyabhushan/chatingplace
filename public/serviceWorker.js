@@ -4,9 +4,9 @@ self.addEventListener('install',function(event){
     console.log('installed..')
     event.waitUntil(caches.open('static').then(cache=>{
         cache.addAll([
-            '/','script.js','style.css','timer.js',
-            'images/144.png','images/bg.png','manifest.json',
-        'socket.io/socket.io.js'])
+            '/','home/script.js','home/style.css','home/timer.js',
+            'assets/144.png','assets/bg.png','manifest.json',
+        'socket.io/socket.io.js','assets/d-loading.js','/db.js'])
     }))
 })
 

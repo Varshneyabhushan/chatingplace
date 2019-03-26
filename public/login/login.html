@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Authorize</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile">
+    <meta name="google-signin-client_id"
+    content="628415773258-m61cv7666ojtnt6v5pbb70o37jcc1rh1.apps.googleusercontent.com">
+    
+    <style>
+      body {
+        display: grid;
+      }
+
+      .g-signin2 {
+          margin-left: auto;
+          margin-right: auto;
+          width: fit-content;
+          margin-top: 200px;
+      }
+
+      #anonymous {
+          margin-left: auto;
+          margin-right: auto;
+          padding: 10px;
+          font-size: 14px;
+          background: #908c8c;
+          color: aliceblue;
+          margin-top: 12px;
+          border-radius: 10px;
+          outline-width: 0px;
+          user-select: none;
+      }
+
+      d-loading#loading {
+          width: 100px;
+          height: 100px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 125px;
+          font-size: 8px;
+          display: inline-table;
+      }
+
+    </style>
+    <script src="../assets/d-loading.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+</head>
+<body>
+  <d-loading id="loading" ></d-loading>
+  <div id="content" style="display:none;">
+      <div class="g-signin2" data-onsuccess="onSignIn" ></div>
+      <button id="anonymous" onclick="onAnonymous()">login as guest</button>
+      <script src="../db.js"></script>
+      <script src="script.js"></script>
+  </div>
+</body>
+</html>

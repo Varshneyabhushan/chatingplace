@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="home/style.css">
+        <link rel="manifest" href="manifest.json">
+        <script src="assets/d-loading.js"></script>
+    </head>
+    <body>
+        <d-loading id="loading"></d-loading>
+        <div id="content" style="display:none;">
+                <div id="top">
+                        <img id="dp" src="" alt="pro"  height="20px">
+                        <div id="name"></div>
+                        <div id="count"></div>
+                    </div>
+                    <div id="chatcon">
+                            <div id="chat">
+                                    <img id="startimg" src="../assets/bg.png" alt="spider">
+                                </div>
+                    </div>
+                    <input type="text" id="textbox" placeholder="Type here">
+                    <script src="/socket.io/socket.io.js"></script>
+                    <script src="../db.js"></script>
+                    <script src="home/preload.js"></script>
+                    <script src="home/script.js"></script>
+        </div>
+    </body>
+</html>

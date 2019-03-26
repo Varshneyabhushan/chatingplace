@@ -15,7 +15,11 @@ const io = socket(listener)
 var count = 0
 
 app.get('/',function(req,res){
-    res.sendFile('public/room.html',{root : __dirname })
+    res.sendFile('public/home/room.html',{root : __dirname })
+})
+
+app.get('/login',function(req,res){
+    res.sendFile('public/login/login.html' , {  root : __dirname })
 })
 
 io.sockets.on('connection',function(socket){
