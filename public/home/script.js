@@ -5,7 +5,7 @@ const countdeck = document.getElementById('count')
 
 const badge = document.createElement('p')
 const chat = document.getElementById('chat')
-const chatctn = document.getElementById('chatcon')
+const chatcon = document.getElementById('chatcon')
 
 badge.id = "badge"
 badge.className = "typingbadge"
@@ -19,10 +19,7 @@ var myid = 0
 
 messagebox.addEventListener("keyup", function(event) {
     event.preventDefault()
-    if (event.keyCode === 13){
-        let text = textbox.value.trim()
-        if(text.indexOf("change:") != 0) send()
-    }
+    if (event.keyCode === 13) send()
 });
 
 messagebox.onkeydown = function(event){
@@ -82,5 +79,5 @@ function stickMessage({message ,color}){
     msge.className = color
     msge.innerText = message
     chat.appendChild(msge)
-    chat.scrollTop = chat.scrollHeight
+    chatcon.scrollTop = chatcon.scrollHeight
 }
