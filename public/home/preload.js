@@ -36,8 +36,8 @@ load.text = 'loading..'
 database.load().then(result=>{
     if(result){
         setTimeout(_=>{
-            let {given_name , image_url } = result
-            username = given_name
+            let { given_name , full_name , image_url } = result
+            username = full_name
             document.getElementById('name').innerText = given_name
             load.parentNode.removeChild(load)
             document.getElementById('content').style.display = 'block'

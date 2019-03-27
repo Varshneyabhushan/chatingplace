@@ -5,7 +5,7 @@ const links = [
     '/socket.io/socket.io.js','/db.js',
 '/login/login.html','/login/script.js','/login/','/serviceWorker.js']
 
-const cacheName = 'chatpages-v2'
+const cacheName = 'chatpages-v3'
 
 self.addEventListener('install',function(event){
     console.log('installing..')
@@ -17,7 +17,7 @@ self.addEventListener('activate',function(event){
     event.waitUntil((async function(){
         try{
             let names = await caches.keys()
-            names = names.filter(filterName)
+            names = names.filter( name => name !== cacheName )
             return Promise.all(names.map(name=>caches.delete(name)))
         }catch(err){
             console.log(err)
@@ -32,7 +32,3 @@ self.addEventListener('fetch',function(event){
     
     event.respondWith(prom)
 })
-
-function filterName(name){
-    return name.indexOf('chatpages') != -1 && name != cacheName
-}
