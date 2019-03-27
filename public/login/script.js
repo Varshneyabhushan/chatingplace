@@ -1,6 +1,13 @@
 let load = document.getElementById('loading')
 load.text = 'loading..'
 
+if(navigator.serviceWorker){
+    window.addEventListener('load',_=>{
+        navigator.serviceWorker.register('../serviceWorker.js')
+    .then(_=>{console.log('registered')})
+    })
+}
+    
 database.load().then(result=>{
     if(result){
         setTimeout(_=>window.location = '..' , 500)

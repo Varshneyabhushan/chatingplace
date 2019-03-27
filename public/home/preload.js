@@ -45,14 +45,14 @@ database.load().then(result=>{
         },200)
     }else{
         setTimeout(_=>{
-            window.location = "/login"
+            window.location = "/login/"
         },100)
     }
 })
 
 img.addEventListener('click',function(){
     database.delete().then(_=>{
-        window.location = '/login'
+        window.location = '/login/'
     }).catch(err=>{
         console.log(err)
     })
