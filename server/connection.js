@@ -25,12 +25,14 @@ function handleConnection(io,socket){
     })
     
     socket.on('postmessage',function(res){
+        if(!users[socket.id]) return 
         res.senderid = socket.id
         res.sender = users[socket.id].full_name
         socket.broadcast.emit('message',res)
     })
  
     socket.on('typing',function(){
+        if(!users[socket.id]) return
         io.sockets.emit('typing',users[socket.id].given_name)
     })
 
