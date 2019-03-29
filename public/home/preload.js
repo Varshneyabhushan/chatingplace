@@ -1,6 +1,6 @@
 
 
-let username = ""
+let userInfo = null
 
 function Timer(val,chat,badge){
     let interval
@@ -36,12 +36,11 @@ load.text = 'loading..'
 database.load().then(result=>{
     if(result){
         setTimeout(_=>{
-            let { given_name , full_name , image_url } = result
-            username = full_name
-            document.getElementById('name').innerText = given_name
+            userInfo = result
+            if(socket) socket.emit('userInfo',userInfo)
             load.parentNode.removeChild(load)
             document.getElementById('content').style.display = 'block'
-            img.src = image_url || '../assets/144.png'
+            img.src = result.image_url || '../assets/144.png'
         },200)
     }else{
         setTimeout(_=>{

@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev" : "nodemon server.js" 
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://bitbucket.org/Varshneyabhushan/chatting_place#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "path": "^0.12.7",
     "socket.io": "^2.1.1"
   }
 }

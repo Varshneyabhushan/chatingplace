@@ -41,7 +41,7 @@ function onSignIn(user){
 }
 
 function onAnonymous(){
-    let data = { full_name : 'anonymous' , given_name : '' }
+    let data = { full_name : 'anonymous' , given_name : 'anonymous' }
     save(data)
 }
 

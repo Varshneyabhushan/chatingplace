@@ -5,16 +5,16 @@ const links = [
     '/socket.io/socket.io.js','/db.js',
 '/login/login.html','/login/script.js','/login/','/serviceWorker.js']
 
-const cacheName = 'chatpages-v3'
+const cacheName = 'chatpages-v5'
 
 self.addEventListener('install',function(event){
     console.log('installing..')
     event.waitUntil(caches.open(cacheName).then(cache=>cache.addAll(links)))
 })
-
+ 
 self.addEventListener('activate',function(event){
     console.log('activated..')
-    event.waitUntil((async function(){
+    event.waitUntil((async function(){  
         try{
             let names = await caches.keys()
             names = names.filter( name => name !== cacheName )

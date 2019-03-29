@@ -28,10 +28,7 @@ messagebox.onkeydown = function(event){
 
 let socket = io()
 
-socket.on('connect',function(){
-    myid = socket.id
-    stickMessage({ message : 'you joined the chat!', color : 'green' })
-})  
+socket.on('connect',_=>myid = socket.id)  
 
 socket.on('message',appendMessage)
 socket.on('status',stickMessage)
@@ -43,7 +40,12 @@ socket.on('disconnect',_=>{
 })
 
 function send(){
-    var msg = { "sender" : username , "message" : messagebox.value.trim() , "senderid" : myid }
+    var msg = {
+        message : messagebox.value.trim() ,
+        senderid : myid ,
+        sender : userInfo.full_name
+    }
+
     if(msg.message != ""){
         appendMessage(msg)
         socket.emit('postmessage',msg)
@@ -63,7 +65,7 @@ function appendMessage(msg){
             <p class="message">${msg.message}</p>
         `
 
-        chat.appendChild(msgobj)
+        chat.appendChild(msgobj) 
         
         
         lastMessage = msgobj
