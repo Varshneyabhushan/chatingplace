@@ -35,6 +35,7 @@ function handleConnection(io,socket){
     })
 
     socket.on('disconnect',function(e){
+        if(!users[socket.id]) return
         socket.broadcast.emit('status',{
             message : `${users[socket.id].given_name} has disconnected`,
             color : 'red'
