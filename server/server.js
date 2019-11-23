@@ -5,6 +5,8 @@ const path = require('path')
 const handleConnection = require('./connection.js')
 const public = path.join(__dirname,'../public')
 
+require('dotenv').config()
+
 app.use(express.static(public))
 
 app.use(express.json())
